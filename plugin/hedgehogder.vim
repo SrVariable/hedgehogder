@@ -121,11 +121,11 @@ function! s:update()
 	return 1
 endfunction
 
-function! s:hedgehog()
+function! s:hedgehogder()
 	if s:update()
 		call s:insert()
 	endif
 endfunction
 
-command! Hedgehog call s:hedgehog ()
+command! Hedgehogder call s:hedgehogder ()
 autocmd BufWritePre * call s:update ()
