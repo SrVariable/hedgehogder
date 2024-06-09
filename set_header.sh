@@ -5,25 +5,25 @@
 
 if [ ! -z "$USER" ]
 then
-    echo "USER=`/usr/bin/whoami`" >> ~/.zshrc
-    echo "export USER" >> ~/.zshrc
+    echo "USER=`/usr/bin/whoami`" >> ~/.${SHELL##/bin/}rc
+    echo "export USER" >> ~/.${SHELL##/bin/}rc
 fi
 
 if [ ! -z "$GROUP" ]
 then
-    echo "GROUP=`/usr/bin/id -gn $user`" >> ~/.zshrc
-    echo "export GROUP" >> ~/.zshrc
+    echo "GROUP=`/usr/bin/id -gn $user`" >> ~/.${SHELL##/bin/}rc
+    echo "export GROUP" >> ~/.${SHELL##/bin/}rc
 fi
 
 if [ ! -z "$MAIL" ]
 then
-    echo "MAIL="$USER@student.42.fr"" >> ~/.zshrc
-    echo "export MAIL" >> ~/.zshrc
+    echo "MAIL="$USER@student.42.fr"" >> ~/.${SHELL##/bin/}rc
+    echo "export MAIL" >> ~/.${SHELL##/bin/}rc
 fi
 
 mkdir -p ~/.vim/plugin
 
 # Add stdheader to vim plugins
-cp plugin/stdheader.vim ~/.vim/plugin/
+cp plugin/hedgehogder.vim ~/.vim/plugin/
 
-source ~/.zshrc
+source ~/.${SHELL##/bin/}rc
