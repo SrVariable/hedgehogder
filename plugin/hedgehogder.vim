@@ -70,7 +70,7 @@ function! s:line(n)
 	elseif a:n == 5 || a:n == 7
 		return s:textline(repeat(' ', 31), s:ascii(a:n+1))
 	elseif a:n == 4 " filename
-		return s:textline(s:filename() . repeat(' ', 25), s:ascii(a:n+1))
+		return s:textline(strpart(s:filename(), 0, 28) . repeat(' ', 4 + 27 - strlen(strpart(s:filename(), 0, 28))), s:ascii(a:n+1))
 	elseif a:n == 6 " author
 		return s:textline("By: " . s:user() . repeat(' ', 17), s:ascii(a:n+1))
 	elseif a:n == 8 " created
@@ -127,5 +127,5 @@ function! s:hedgehogder()
 	endif
 endfunction
 
-command! Hedgehogder call s:hedgehogder ()
-autocmd BufWritePre * call s:update ()
+command! Hedgehoger call s:hedgehogder ()
+"autocmd BufWritePre * call s:update ()
